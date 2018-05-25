@@ -12,6 +12,8 @@ Requirements:
 
 Instructions:
 
+If you would like to see the site without setting up the dev environment, I have saved screen captures under the folder site_images. Otherwise, please follow these steps:
+
 1. Clone this repo:
 
    https://github.com/pinkwaffles/A-New-Angle
