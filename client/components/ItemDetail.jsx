@@ -6,7 +6,7 @@ function ItemDetail (props) {
   const publishDate = new Date(props.item.releaseDate);
   return (
     <div className='detail_container'>
-      <button className='back_button' onClick={() => {props.changeView('list')}}>Back</button>
+      <button className='back_button' onClick={() => {props.changeView('list')}}><b>&#8678; Back</b></button>
       <div className='item_detail'>
         <div className='left_column'>
           <a href={props.item.trackViewUrl}><img src={props.item.artworkUrl100}></img></a>
