@@ -9,7 +9,7 @@ const app = express();
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
-app.use(express.static(`${__dirname}./../dist`));
+app.use(express.static(`${__dirname}./../`));
 
 app.get('/books', (req, res) => {
   axios.get('https://itunes.apple.com/search', {params: {term: req.query.keyword, entity: 'ebook'}})
