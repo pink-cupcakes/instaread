@@ -1,3 +1,12 @@
+h4 {
+  margin: 20px;
+}
+
+body {
+  margin: 0px;
+  font-family: 'Quicksand', sans-serif;
+}
+
 .navbar {
   width: 100%;
   height: 75px;
@@ -15,4 +24,70 @@
   width: 10%;
   height: 100%;
   display: inline-block;
+  padding: 10px;
+}
+
+.search_container {
+  width: 100%;
+  height: 250px;
+  background: url('http://insurancelicensenow.com/wp-content/uploads/2017/06/7c6a48ca-d523-409e-ad51-5e652ee208ed-1.jpg') 100% 100% no-repeat;
+  display: flex;
+  flex-flow: column wrap;
+  justify-content: center;
+  align-content: center;
+  align-items: center;
+}
+
+.search_bar {
+  width: 450px;
+  height: 5px;
+  padding: 10px;
+  text-align: center;
+  font-size: 15px;
+}
+
+.book_list {
+  display: flex;
+  justify-content: center;
+  margin-left: auto;
+  margin-right: auto;
+  padding-top: 50px;
+  height: 100%;
+  width: 80%;
+  flex-wrap: wrap;
+}
+
+.listThumbnail {
+  justify-content: center;
+  text-align: center;
+  width: 25%;
+  height: 80%;
+  padding-bottom: 50px;
+}
+
+.listThumbnail img {
+  cursor: pointer;
+  max-width: 150px;
+  max-height: 150px;
+  width: 100%;
+  height: 100%;
+  box-shadow: 0px 30px 40px rgba(0,0,0,.1);
+}
+
+.author {
+  color: grey;
+}
+
+.buttons {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  align-content: center; 
+  height: 100px;
+}
+
+.buttons button {
+  width: 100px;
+  height: 20px;
+  margin: 10px;
 }

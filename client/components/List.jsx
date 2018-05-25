@@ -6,6 +6,7 @@ class List extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
+      start: 0,
       totalList: [],
       condensedList: [],
     };
@@ -14,7 +15,7 @@ class List extends React.Component {
 
   next() {
     let previousStart = this.state.start;
-    let nextStart = Math.min(this.state.totalList.length - 21, previousStart + 20);
+    let nextStart = Math.min(this.state.totalList.length - 20, previousStart + 20);
     let shortList = this.state.totalList.slice(nextStart, nextStart + 20);
     this.setState({'start': nextStart});
     this.setState({'condensedList': shortList});
@@ -29,8 +30,9 @@ class List extends React.Component {
   };
 
   renderStore(result) {
+    let start = this.state.start;
     this.setState({ totalList: result });
-    this.setState({ condensedList: response.data.slice(start, start + 20) });
+    this.setState({ condensedList: result.slice(start, start + 20) });
   }
 
   render() {
@@ -48,8 +50,10 @@ class List extends React.Component {
             })}
           </div>
         <br />
-        <button onClick={() => {this.previous()}}>Previous 20</button>
-        <button onClick={() => {this.next()}}>Next 20</button>
+        <div className="buttons">
+          <button onClick={() => {this.previous()}}>Previous 20</button>
+          <button onClick={() => {this.next()}}>Next 20</button>
+        </div>
       </div>
     )
   }
