@@ -34,4 +34,4 @@ If you would like to see the site without setting up the dev environment, I have
 
   `npm run start`
 
-  This starts the server, and the project is running on localhost:3000. :raised-hands:
+  This starts the server, and the project is running on localhost:3000. :raised_hands:
