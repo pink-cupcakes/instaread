@@ -1,6 +1,7 @@
 import React from 'react';
 import Search from './Search.jsx';
 import Item from './Item.jsx';
+import ItemDetail from './ItemDetail.jsx';
 
 class List extends React.Component {
   constructor(props) {
@@ -9,7 +10,9 @@ class List extends React.Component {
       start: 0,
       totalList: [],
       condensedList: [],
+      view: 'list'
     };
+    this.changeView = this.changeView.bind(this);
     this.renderStore = this.renderStore.bind(this);
   }
 
@@ -30,32 +33,52 @@ class List extends React.Component {
   };
 
   renderStore(result) {
-    let start = this.state.start;
-    this.setState({ totalList: result });
-    this.setState({ condensedList: result.slice(start, start + 20) });
+    if (result.length === 0) {
+      alert('There were no results, please try a different search.');
+    } else {
+      let start = 0;
+      this.setState({ totalList: result });
+      this.setState({ condensedList: result.slice(start, start + 20) });
+    }
+  }
+
+  changeView(newView, item) {
+    this.setState({ 'view': newView });
+    if (item) {
+      this.setState({ 'detailItem': item });
+    }
   }
 
   render() {
-    return (
-      <div className="content_body">
-        <Search renderStore={this.renderStore} />
-          <div className="book_list">
-            {this.state.condensedList.map((itemFromDummy, index) => {
-              let itemNumber = index + this.state.start + 1;
-              return <Item
-                itemDetails={itemFromDummy}
-                itemNumber={itemNumber}
-                changeView={this.props.changeView}
-              />
-            })}
-          </div>
-        <br />
-        <div className="buttons">
-          <button onClick={() => {this.previous()}}>Previous 20</button>
-          <button onClick={() => {this.next()}}>Next 20</button>
+    if (this.state.view === 'list') {
+      return (
+        <div className="content_body">
+          <Search renderStore={this.renderStore} />
+            <div className="book_list">
+              {this.state.condensedList.map((itemDetails, index) => {
+                let itemNumber = index + this.state.start + 1;
+                return <Item
+                  itemDetails={itemDetails}
+                  itemNumber={itemNumber}
+                  changeView={this.changeView}
+                />
+              })}
+            </div>
+            <br />
+            <div className="buttons">
+              <button onClick={() => {this.previous()}}>Previous 20</button>
+              <button onClick={() => {this.next()}}>Next 20</button>
+            </div>
         </div>
-      </div>
-    )
+      )
+    } else {
+      return (
+        <div className="content_body">
+          <Search renderStore={this.renderStore} />
+          <ItemDetail item={this.state.detailItem} changeView={this.changeView} />
+        </div>
+      )      
+    }
   }
 }
 

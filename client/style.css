@@ -91,3 +91,45 @@ body {
   height: 20px;
   margin: 10px;
 }
+
+.detail_container {
+  background: linear-gradient(#80808003, #e2e1e163);
+}
+
+.item_detail {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.back_button {
+  margin: 50px;
+  margin-bottom: 0px;
+  width: 100px;
+}
+
+.left_column {
+  width: 30%;
+  padding: 50px;
+}
+
+.left_column img {
+  width: 150px;
+}
+
+.right_column {
+  width: 70%;
+  padding: 25px;
+}
+
+.media {
+  display: flex;
+  align-content: center;
+  text-align: center;
+  justify-content: center;
+  margin-bottom: 25px;
+}
+
+.github_icon {
+  font-size: 45px;
+}

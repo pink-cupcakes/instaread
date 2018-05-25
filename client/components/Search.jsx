@@ -5,7 +5,7 @@ class Search extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      text: 'Calvin and Hobbes',
+      text: 'Game of Thrones',
     };
   }
 
@@ -17,6 +17,7 @@ class Search extends React.Component {
     axios.get('/books', {params: {keyword: this.state.text}})
       .then((res) => {
         this.props.renderStore(res.data);
+        this.setState({ text: '' })
       })
       .catch((error) => {
         console.log(error);

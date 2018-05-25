@@ -1,5 +1,4 @@
 const express = require('express');
-
 const fs = require('fs');
 const path = require('path');
 const bodyParser = require('body-parser');
@@ -7,7 +6,6 @@ const axios = require('axios');
 
 const app = express();
 
-//initialize express
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
@@ -19,8 +17,7 @@ app.get('/books', (req, res) => {
       res.json(result.data.results);
     })
     .catch((error) => {
-      res.status(200);
-      res.end('No results');
+      res.end();
     })
 })
 
